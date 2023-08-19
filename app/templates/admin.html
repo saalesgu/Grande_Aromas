@@ -6,6 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hola Admin</h1>
+    <h1>Welcome to the Admin Page</h1>
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Price</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{{ product.unit }}</td>
+            <td>{{ product.price }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

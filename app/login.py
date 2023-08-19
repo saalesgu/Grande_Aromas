@@ -1,16 +1,9 @@
 from flask import Blueprint, jsonify, request, render_template, redirect, url_for
-import psycopg2
-
+from db import get_db_connection
 login_bp = Blueprint('login_bp', __name__)
 
 try:
-    connection = psycopg2.connect(
-        host='localhost',
-        user='postgres',
-        password='Josari242008',
-        database='Grande_Aromas'
-    )
-    print('Conexión a la base de datos exitosa')
+    connection = get_db_connection()
 except Exception as ex:
     print('Error al conectar a la base de datos:', ex)
 
@@ -25,7 +18,7 @@ def login():
             rol_id = user_data[1]
 
             if rol_id == 2:
-                return redirect(url_for('views.admin_page'))
+                return redirect(url_for('admin_bp.admin_page'))
             elif rol_id == 1:
                 return redirect(url_for('views.client_page'))
             else:

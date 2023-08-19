@@ -1,4 +1,5 @@
-from flask import Flask, render_template, Blueprint
+from flask import Blueprint, jsonify, request, render_template, redirect, url_for
+from db import get_db_connection
 
 views_bp = Blueprint('views', __name__)
 
@@ -10,9 +11,6 @@ def index():
 def show_login_page():
     return render_template('login.html')
 
-@views_bp.route('/admin.html')
-def admin_page():
-    return render_template('admin.html')
 
 @views_bp.route('/cliente.html')
 def client_page():

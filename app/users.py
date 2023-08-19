@@ -1,17 +1,12 @@
 from flask import Blueprint, jsonify, request, render_template
-import psycopg2  # Importa la librería para la conexión con la base de datos
+from db import get_db_connection
+
 
 users_bp = Blueprint('users_bp', __name__)
 
 # Configura la conexión a la base de datos
 try:
-    connection = psycopg2.connect(
-        host='localhost',
-        user='postgres',
-        password='Josari242008',
-        database='Grande_Aromas'
-    )
-    print('Conexión a la base de datos exitosa')
+    connection = get_db_connection()
 except Exception as ex:
     print('Error al conectar a la base de datos:', ex)
 
