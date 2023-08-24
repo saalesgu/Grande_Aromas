@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/client.css') }}"> <!-- Agrega tu archivo de estilos aquí -->
 </head>
+
 <body>
-    <h1>Hola cliente</h1>
+    <div class="user-header">
+        <h1>Bienvenido, {{ username }}</h1>
+        <a href="{{ url_for('login_bp.logout') }}">Cerrar sesión</a>
+    </div>
+
+    <div class="product-list">
+        {% for product in products %}
+        <div class="product">
+            <h2>{{ product.product_name }}</h2>
+            <p class="description">Descripción: {{ product.description }}</p>
+            <p class="price">Precio: {{ product.price }}</p>
+        </div>
+        {% endfor %}
+    </div>
 </body>
+
 </html>

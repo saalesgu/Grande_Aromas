@@ -1,0 +1,64 @@
+:root {
+    --primary-color: #c7a17a;
+    --background-color: #f9f5f0;
+    --dark-color: #151515;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: var(--dark-color);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid var(--dark-color);
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.admin-actions {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar {
+    background-color: var(--dark-color);
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}

@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_page.css') }}">
 </head>
 <body>
+    <div class="navbar">
+        <a href="{{ url_for('admin_bp.admin_page') }}">Inicio</a>
+        <a href="{{ url_for('admin_bp.add_product') }}">Agregar nuevo producto</a>
+        <a href="{{ url_for('login_bp.logout') }}">Cerrar sesión</a>
+    </div>
+
     <h1>Welcome to the Admin Page</h1>
     <table>
         <tr>
@@ -14,6 +21,7 @@
             <th>Quantity</th>
             <th>Unit</th>
             <th>Price</th>
+            <th>Actions</th> <!-- Agregamos una columna para acciones -->
         </tr>
         {% for product in products %}
         <tr>
@@ -22,8 +30,12 @@
             <td>{{ product.quantity }}</td>
             <td>{{ product.unit }}</td>
             <td>{{ product.price }}</td>
+
         </tr>
         {% endfor %}
     </table>
+    <div class="admin-actions">
+        <a href="{{ url_for('admin_bp.add_product') }}" class="btn btn-primary">Agregar nuevo producto</a>
+    </div>
 </body>
 </html>
